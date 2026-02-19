@@ -6,9 +6,9 @@ import resultadoRouter from "./routes/resultado";
 import dotenv from "dotenv";
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3001;
 
-app.use(cors({ origin: "http://localhost:5173" })); // porta padrão do Vite
+app.use(cors());
 app.use(express.json());
 
 app.use("/estados", estadosRouter);
@@ -20,5 +20,5 @@ app.use((_req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
+  console.log(`🚀 Servidor rodando em ${PORT}`);
 });
